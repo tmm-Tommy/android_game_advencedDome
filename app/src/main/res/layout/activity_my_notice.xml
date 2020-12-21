@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/beijing"
+    android:orientation="vertical"
+    tools:context=".activity.MyNotice">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@color/mainColor1"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp">
+
+        <ImageView
+            android:id="@+id/main_return"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:src="@drawable/main_return" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="工厂资讯"
+            android:textColor="@color/mainColor2" />
+    </RelativeLayout>
+
+   <ScrollView
+       android:layout_width="match_parent"
+       android:layout_height="match_parent">
+       <LinearLayout
+           android:orientation="vertical"
+           android:layout_width="match_parent"
+           android:layout_height="match_parent"
+           android:padding="10dp">
+
+           <TextView
+               android:id="@+id/notice_title"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:background="@color/mainColor1"
+               android:padding="5dp"
+               android:text="title"
+               android:textColor="@color/mainColor2"
+               android:transitionName="myNotice"
+               android:textSize="22dp" />
+           <VideoView
+               android:id="@+id/notice_vv"
+               android:layout_marginTop="10dp"
+               android:layout_width="400dp"
+               android:layout_height="200dp"
+               android:layout_gravity="center"/>
+           <LinearLayout
+               android:padding="10dp"
+               android:layout_marginTop="20dp"
+               android:background="@color/mainColor1"
+               android:layout_width="match_parent"
+               android:layout_height="120dp">
+
+               <TextView
+                   android:id="@+id/notice_text"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:text="text"
+                   android:textColor="@color/mainColor2" />
+           </LinearLayout>
+            <ImageView
+                android:id="@+id/notice_iv"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:layout_width="300dp"
+                android:layout_height="200dp"/>
+       </LinearLayout>
+   </ScrollView>
+
+
+</LinearLayout>

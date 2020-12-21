@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/beijing"
+    android:orientation="vertical"
+    tools:context=".activity.MyWorkInfo">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@color/mainColor1"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp">
+
+        <ImageView
+            android:id="@+id/main_return"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:src="@drawable/main_return" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="我的工厂"
+            android:textColor="@color/mainColor2"
+            android:transitionName="myWorkInfo" />
+
+        <TextView
+            android:id="@+id/main_reset"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginRight="20dp"
+            android:layout_toLeftOf="@id/main_updateIP"
+            android:text="重置数据"
+            android:textColor="@color/mainColor2" />
+
+        <TextView
+            android:id="@+id/main_updateIP"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerInParent="true"
+            android:text="修改IP"
+            android:textColor="@color/mainColor2" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="10dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/main_people_green"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="工厂资金"
+                    android:textColor="@color/mainColor2" />
+
+                <TextView
+                    android:id="@+id/mywork_money"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="1"
+                    android:textColor="@color/mainColor2"
+                    android:textSize="20dp" />
+
+                <TextView
+                    android:id="@+id/mywork_updateMoney"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:text="修改"
+                    android:textColor="@color/mainColor2" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/main_people_green"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="工厂仓库容量"
+                    android:textColor="@color/mainColor2" />
+
+                <TextView
+                    android:id="@+id/mywork_Meg"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="1"
+                    android:textColor="@color/mainColor2"
+                    android:textSize="20dp" />
+
+                <TextView
+                    android:id="@+id/mywork_updateMeg"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:text="修改"
+                    android:textColor="@color/mainColor2" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/main_people_green"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="工厂车库容量"
+                    android:textColor="@color/mainColor2" />
+
+                <TextView
+                    android:id="@+id/mywork_car"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="1"
+                    android:textColor="@color/mainColor2"
+                    android:textSize="20dp" />
+
+                <TextView
+                    android:id="@+id/mywork_updateCar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:text="修改"
+                    android:textColor="@color/mainColor2" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:padding="5dp"
+            android:background="@drawable/main_people_green"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/mywork_nowElect"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="当前电力消耗"
+                android:textColor="@color/mainColor2" />
+
+            <com.zjun.widget.RuleView
+                android:id="@+id/mywork_elect"
+                android:layout_marginTop="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                app:gv_currentValue="100"
+                app:gv_maxValue="100"
+                app:gv_minValue="0"
+                app:zjun_bgColor="@color/mainColor1"
+                app:zjun_gradationColor="@color/mainColor2"
+                app:zjun_indicatorLineColor="@color/colorRed"
+                app:zjun_textColor="@color/mainColor2" />
+
+            <TextView
+                android:id="@+id/mywork_setEletr"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:text="设置电力供应>"
+                android:textColor="@color/mainColor2" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
+            android:padding="10dp">
+
+            <RelativeLayout
+                android:id="@+id/mywork_switch_layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/factory_off">
+
+                <Switch
+                    android:id="@+id/mywork_switch"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentBottom="true"
+                    android:showText="true"
+                    android:switchTextAppearance="@style/SwitchTheme"
+                    android:textOff="ON"
+                    android:textOn="OFF"
+                    android:thumb="@color/mainColor1"
+                    android:track="@color/mainColor2" />
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:layout_weight="1"
+                android:padding="5dp"
+                android:background="@drawable/main_people_green"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/mywork_tvDu"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="工厂温度:"
+                    android:textColor="@color/mainColor2" />
+
+                <com.zjun.widget.RuleView
+                    android:id="@+id/mywork_du"
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+                    android:layout_marginTop="10dp"
+                    app:gv_currentValue="100"
+                    app:gv_maxValue="100"
+                    app:gv_minValue="0"
+                    app:zjun_bgColor="@color/mainColor1"
+                    app:zjun_gradationColor="@color/mainColor2"
+                    app:zjun_indicatorLineColor="@color/colorRed"
+                    app:zjun_textColor="@color/mainColor2" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:id="@+id/mywork_snow"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:src="@drawable/snow_on" />
+
+                    <ImageView
+                        android:id="@+id/mywork_sum"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_marginLeft="20dp"
+                        android:src="@drawable/sun_off" />
+
+                    <ImageView
+                        android:id="@+id/mywork_close"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_marginLeft="20dp"
+                        android:src="@drawable/close" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

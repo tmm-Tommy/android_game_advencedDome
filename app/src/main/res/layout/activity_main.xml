@@ -1,0 +1,329 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@color/mainColor1"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp">
+
+        <TextView
+            android:id="@+id/main_switchLine"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="切换生产线"
+            android:textColor="@color/mainColor2" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="先进制造"
+            android:textColor="@color/mainColor2" />
+
+        <TextView
+            android:id="@+id/main_myTable"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginRight="30dp"
+            android:layout_toLeftOf="@id/main_myWorkInfo"
+            android:gravity="center"
+            android:text="工厂仓库"
+            android:textColor="@color/mainColor2" />
+
+        <TextView
+            android:id="@+id/main_myWorkInfo"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:gravity="center"
+            android:text="我的工厂"
+            android:textColor="@color/mainColor2" />
+    </RelativeLayout>
+
+    <com.scwang.smart.refresh.layout.SmartRefreshLayout
+        android:id="@+id/main_refresh"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.scwang.smart.refresh.header.MaterialHeader
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <androidx.drawerlayout.widget.DrawerLayout
+            android:id="@+id/main_layout_menu"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/beijing"
+                android:orientation="vertical"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp">
+
+                <LinearLayout
+                    android:layout_width="200dp"
+                    android:layout_height="20dp"
+                    android:layout_marginTop="10dp">
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/notice"
+                        app:tint="@color/colorRed" />
+                    <TextView
+                        android:id="@+id/main_notice"
+                        android:text="暂无资讯"
+                        android:singleLine="true"
+                        android:ellipsize="marquee"
+                        android:focusable="true"
+                        android:marqueeRepeatLimit="marquee_forever"
+                        android:textColor="@color/colorRed"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"/>
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:background="@color/mainColor1"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:text="生产线-员工"
+                        android:textColor="@color/mainColor2" />
+
+                    <TextView
+                        android:id="@+id/main_allPeople"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:text="人才市场>"
+                        android:textColor="@color/mainColor2" />
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="64dp"
+                    android:layout_marginTop="10dp">
+
+                    <LinearLayout
+                        android:id="@+id/main_people1_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginRight="15dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/main_people_red"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/main_people1_name"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="工程师"
+                            android:textColor="@color/mainColor2" />
+
+                        <ProgressBar
+                            android:id="@+id/main_people1_hqV"
+                            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+
+                        <TextView
+                            android:id="@+id/main_people1_hq"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="点击分配员工"
+                            android:textColor="@color/mainColor2" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/main_people2_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginRight="15dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/main_people_red"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/main_people2_name"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="操作员"
+                            android:textColor="@color/mainColor2" />
+
+                        <ProgressBar
+                            android:id="@+id/main_people2_hpV"
+                            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+
+                        <TextView
+                            android:id="@+id/main_people2_hp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="点击分配员工"
+                            android:textColor="@color/mainColor2" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/main_people3_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginRight="15dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/main_people_red"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/main_people3_name"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="技术员"
+                            android:textColor="@color/mainColor2" />
+
+                        <ProgressBar
+                            android:id="@+id/main_people3_hpV"
+                            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+
+                        <TextView
+                            android:id="@+id/main_people3_hp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="点击分配员工"
+                            android:textColor="@color/mainColor2" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/main_people4_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginRight="15dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/main_people_red"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/main_people4_name"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="质检员"
+                            android:textColor="@color/mainColor2" />
+
+                        <ProgressBar
+                            android:id="@+id/main_people4_hpV"
+                            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+
+                        <TextView
+                            android:id="@+id/main_people4_hp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="点击分配员工"
+                            android:textColor="@color/mainColor2" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:background="@color/mainColor1"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:text="生产线-环节"
+                        android:textColor="@color/mainColor2" />
+
+                    <TextView
+                        android:id="@+id/main_nextStep"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:text="下一个环节>"
+                        android:textColor="@color/mainColor2" />
+                </RelativeLayout>
+
+                <GridView
+                    android:id="@+id/main_gv"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="10dp"
+                    android:layout_weight="1"
+                    android:horizontalSpacing="10dp"
+                    android:numColumns="5"
+                    android:verticalSpacing="10dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="240dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="left"
+                android:background="@color/mainColor1"
+                android:orientation="vertical">
+
+                <ListView
+                    android:id="@+id/main_lv_menu"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="提示:红色-未创建/绿色-已创建/黄色-AI"
+                    android:textSize="10dp" />
+            </LinearLayout>
+
+            <ListView
+                android:id="@+id/main_lv_table"
+                android:layout_width="240dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="right"
+                android:layout_weight="1"
+                android:background="@color/mainColor1" />
+        </androidx.drawerlayout.widget.DrawerLayout>
+
+    </com.scwang.smart.refresh.layout.SmartRefreshLayout>
+
+</LinearLayout>

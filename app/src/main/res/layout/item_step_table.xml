@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="150dp"
+        android:layout_height="120dp"
+        android:background="@drawable/main_people_green"
+        android:orientation="vertical"
+        android:padding="10dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/item_step_step"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="step"
+                android:textColor="@color/mainColor2" />
+
+            <View
+                android:id="@+id/item_step_state"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:background="@drawable/shape_step_green" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/item_step_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="name"
+            android:textColor="@color/mainColor2" />
+
+        <TextView
+            android:id="@+id/item_step_hq"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="hq"
+            android:textColor="@color/mainColor2" />
+
+        <Button
+            android:id="@+id/item_step_update"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:background="@color/mainColor2"
+            android:text="维修"
+            android:textColor="@color/mainColor1" />
+    </LinearLayout>
+
+</LinearLayout>

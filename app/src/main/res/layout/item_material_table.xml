@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp">
+        <TextView
+            android:id="@+id/item_material_id"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="ID"
+            android:layout_margin="2dp"
+            android:background="@color/mainColor1"
+            android:gravity="center"
+            android:textColor="@color/mainColor2"/>
+        <TextView
+            android:id="@+id/item_material_name"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="商品名称"
+            android:layout_margin="2dp"
+            android:background="@color/mainColor1"
+            android:gravity="center"
+            android:textColor="@color/mainColor2"/>
+        <TextView
+            android:id="@+id/item_material_superName"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="供应商名"
+            android:layout_margin="2dp"
+            android:background="@color/mainColor1"
+            android:gravity="center"
+            android:textColor="@color/mainColor2"/>
+        <TextView
+            android:id="@+id/item_material_price"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="价格"
+            android:background="@color/mainColor1"
+            android:gravity="center"
+            android:layout_margin="2dp"
+            android:textColor="@color/mainColor2"/>
+        <TextView
+            android:id="@+id/item_material_num"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="数量"
+            android:layout_margin="2dp"
+            android:background="@color/mainColor1"
+            android:gravity="center"
+            android:textColor="@color/mainColor2"/>
+        <TextView
+            android:id="@+id/item_material_set"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="购买"
+            android:layout_margin="5dp"
+            android:background="@color/mainColor1"
+            android:gravity="center"
+            android:textColor="@color/mainColor2"/>
+    </LinearLayout>
+
+</LinearLayout>

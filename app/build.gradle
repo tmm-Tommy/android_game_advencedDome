@@ -1,0 +1,57 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 30
+    buildToolsVersion "30.0.2"
+
+    defaultConfig {
+        applicationId "com.example.advanceddome"
+        minSdkVersion 16
+        targetSdkVersion 30
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+    implementation files('libs\\volley.jar')
+    implementation files('libs\\gson-2.8.6.jar')
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+    //MPAndroidChart（开源图表框架）
+    implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
+    //圆形图片控件 CircleImageView
+    implementation 'de.hdodenhof:circleimageview:3.0.0'
+    //OkHttp（网络请求框架）
+    implementation("com.squareup.okhttp3:okhttp:4.3.1")
+    //Glide图片处理框架
+    implementation 'com.github.bumptech.glide:glide:4.11.0'
+    //自定义刻度尺
+    implementation 'com.zjun:rule-view:0.0.1'
+    //EventBus(Android 事件总线)
+    implementation 'org.greenrobot:eventbus:3.1.1'
+    //GreenDao3.2(数据库框架)
+    implementation 'org.greenrobot:greendao:3.3.0'
+    //时间选择器
+    implementation 'com.contrarywind:Android-PickerView:4.1.9'
+    //CalenderView 日历框架
+    implementation 'com.haibin:calendarview:3.6.8'
+    //下拉刷新
+    implementation  'com.scwang.smart:refresh-layout-kernel:2.0.1'      //核心必须依赖
+    implementation  'com.scwang.smart:refresh-header-classics:2.0.1'    //经典刷新头
+    implementation  'com.scwang.smart:refresh-footer-classics:2.0.1'    //经典加载
+    implementation  'com.scwang.smart:refresh-header-material:2.0.1'    //谷歌刷新头
+}
