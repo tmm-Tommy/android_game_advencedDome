@@ -121,6 +121,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView mMainNotice;
     private Json_NoticeAll.DataEntity noticeEntity;
     private Bundle bundle;
+    private Response execute;
 
     @Override
     protected void onResume() {
@@ -178,8 +179,12 @@ public class MainActivity extends AppCompatActivity {
             peopleLayouts.get(i).setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    if (userLines.get(nowLineEntity.getPos()).getData() != null)
-                        addUserLinePeople(userLines.get(nowLineEntity.getPos()).getData().getId(), finalI, true);
+                    try {
+                        if (userLines.get(nowLineEntity.getPos()).getData() != null)
+                            addUserLinePeople(userLines.get(nowLineEntity.getPos()).getData().getId(), finalI, true);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
                 }
             });
         }
@@ -188,17 +193,21 @@ public class MainActivity extends AppCompatActivity {
             @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
             @Override
             public void onClick(View view) {
-                Bundle bundle = new Bundle();
-                bundle.putInt("userLineSize", userPersonEntities.size());
-                for (int i = 0; i < userPersonEntities.size(); i++) {
-                    bundle.putSerializable("userLine" + i, userPersonEntities.get(i));
+                try {
+                    Bundle bundle = new Bundle();
+                    bundle.putInt("userLineSize", userPersonEntities.size());
+                    for (int i = 0; i < userPersonEntities.size(); i++) {
+                        bundle.putSerializable("userLine" + i, userPersonEntities.get(i));
+                    }
+                    intent = new Intent();
+                    intent.putExtras(bundle);
+                    intent.setClass(MainActivity.this, AllPeopleTable.class);
+                    startActivity(intent, ActivityOptions.makeSceneTransitionAnimation(
+                            MainActivity.this, Pair.<View, String>create(mMainAllPeople, "allPeopleTitle")).toBundle()
+                    );
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
-                intent = new Intent();
-                intent.putExtras(bundle);
-                intent.setClass(MainActivity.this, AllPeopleTable.class);
-                startActivity(intent, ActivityOptions.makeSceneTransitionAnimation(
-                        MainActivity.this, Pair.<View, String>create(mMainAllPeople, "allPeopleTitle")).toBundle()
-                );
             }
         });
         //点击进入下一个环节
@@ -224,9 +233,13 @@ public class MainActivity extends AppCompatActivity {
         mMainRefresh.setOnRefreshListener(new OnRefreshListener() {
             @Override
             public void onRefresh(@NonNull RefreshLayout refreshLayout) {
-                if (!isAutoRefresh) {
-                    updateUserLineView(nowLineEntity.getPos());
-                    updateRight(nowLineEntity.getPos());
+                try {
+                    if (!isAutoRefresh) {
+                        updateUserLineView(nowLineEntity.getPos());
+                        updateRight(nowLineEntity.getPos());
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
             }
         });
@@ -235,14 +248,18 @@ public class MainActivity extends AppCompatActivity {
             @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
             @Override
             public void onClick(View view) {
-                intent = new Intent();
-                intent.setClass(MainActivity.this, MyNotice.class);
-                bundle = new Bundle();
-                bundle.putSerializable("noticeEntity",noticeEntity);
-                intent.putExtras(bundle);
-                startActivity(intent, ActivityOptions.makeSceneTransitionAnimation(
-                        MainActivity.this, Pair.<View, String>create(mMainNotice, "myNotice")).toBundle()
-                );
+                try {
+                    intent = new Intent();
+                    intent.setClass(MainActivity.this, MyNotice.class);
+                    bundle = new Bundle();
+                    bundle.putSerializable("noticeEntity",noticeEntity);
+                    intent.putExtras(bundle);
+                    startActivity(intent, ActivityOptions.makeSceneTransitionAnimation(
+                            MainActivity.this, Pair.<View, String>create(mMainNotice, "myNotice")).toBundle()
+                    );
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
         });
     }
@@ -288,7 +305,7 @@ public class MainActivity extends AppCompatActivity {
                         client = new OkHttpClient();
                         request = new Request.Builder().url(MyHttp.HEAD_URL + "Interface/index/getUserlineContent?pos=" + i).build();
                         Call call = client.newCall(request);
-                        Response execute = call.execute();
+                        execute = call.execute();
                         String resData = execute.body().string();
                         if (resData.contains("\"status\":400")) {
                             //不存在
@@ -312,6 +329,8 @@ public class MainActivity extends AppCompatActivity {
                             userLines.add(json_userLineAll);
                         }
                     } catch (IOException e) {
+                        if(mMainRefresh!=null)
+                        mMainRefresh.finishRefresh();   //结束下拉动画
                         e.printStackTrace();
                     }
                 }

@@ -106,6 +106,7 @@
             </LinearLayout>
         <ListView
             android:id="@+id/material_lv"
+            android:layoutAnimation="@anim/lv_laout_anim"
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>
     </LinearLayout>

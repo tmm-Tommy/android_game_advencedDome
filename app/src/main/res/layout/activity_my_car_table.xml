@@ -130,6 +130,7 @@
             </LinearLayout>
             <ListView
                 android:id="@+id/mycar_lv"
+                android:layoutAnimation="@anim/lv_laout_anim"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"/>
@@ -248,6 +249,7 @@
             </LinearLayout>
             <GridView
                 android:id="@+id/item_car_Gv"
+                android:layoutAnimation="@anim/gv_laout_anim"
                 android:numColumns="10"
                 android:horizontalSpacing="10dp"
                 android:verticalSpacing="10dp"

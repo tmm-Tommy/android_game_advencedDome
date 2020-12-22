@@ -284,6 +284,7 @@
 
                 <GridView
                     android:id="@+id/main_gv"
+                    android:layoutAnimation="@anim/gv_laout_anim"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginTop="10dp"

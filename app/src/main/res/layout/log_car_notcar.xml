@@ -73,6 +73,7 @@
         </LinearLayout>
         <ListView
             android:id="@+id/log_mycar_lv"
+            android:layoutAnimation="@anim/lv_laout_anim"
             android:background="@drawable/beijing"
             android:layout_width="match_parent"
             android:layout_height="match_parent"

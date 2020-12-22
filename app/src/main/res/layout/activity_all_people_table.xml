@@ -79,6 +79,7 @@
     </LinearLayout>
     <ListView
         android:id="@+id/allpeople_lv"
+        android:layoutAnimation="@anim/lv_laout_anim"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1"/>
