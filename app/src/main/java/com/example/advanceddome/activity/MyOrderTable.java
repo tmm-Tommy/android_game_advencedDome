@@ -386,7 +386,7 @@ public class MyOrderTable extends AppCompatActivity {
                     @Override
                     public void onClick(View view) {
                         //提交修改
-                        MyHttp.Call(MyOrderTable.this, "dataInterface/UserAppointment/updateType?id="+orders.get(i).getId()+"&type="+selectState, true, new Response.Listener<JSONObject>() {
+                        MyHttp.Call(MyOrderTable.this, "dataInterface/UserAppointment/updateType?id="+orders.get(i).getId()+"&type="+selectState, false, new Response.Listener<JSONObject>() {
                             @Override
                             public void onResponse(JSONObject jsonObject) {
                                 try {

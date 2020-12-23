@@ -261,13 +261,13 @@ public class MyWorkInfo extends AppCompatActivity {
      * 修改数据总方法
      */
     private void updateWorkData(String url, final boolean isLog) {
-        MyHttp.Call(this, url, true, new Response.Listener<JSONObject>() {
+        MyHttp.Call(this, url, false, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject jsonObject) {
                 try {
                     if (jsonObject.getInt("status") == 200 && isLog) {
                         Toast.makeText(MyWorkInfo.this, "操作成功", Toast.LENGTH_SHORT).show();
-                        updaetMainView(false);
+                        updaetMainView(true);
                     }else {
                         if (isLog)
                         Toast.makeText(MyWorkInfo.this, ""+jsonObject.getString("message"), Toast.LENGTH_SHORT).show();

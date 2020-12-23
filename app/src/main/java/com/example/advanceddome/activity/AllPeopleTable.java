@@ -116,6 +116,7 @@ public class AllPeopleTable extends AppCompatActivity {
                 holder.itemAllpeopleName.setText(object.getPeopleName()+"");
                 holder.itemAllpeoplePost.setText(object.getContent()+"");
                 holder.itemAllpeoplePrice.setText(object.getGold()+"");
+                Log.d("FDS",object.toString());
                 holder.itemAllpeopleState.setText(object.isWork()?"已雇佣":"未雇佣");
             } catch (Exception e) {
                 e.printStackTrace();

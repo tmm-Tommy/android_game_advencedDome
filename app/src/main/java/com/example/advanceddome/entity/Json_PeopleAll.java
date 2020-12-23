@@ -59,6 +59,21 @@ public class Json_PeopleAll implements Serializable {
         private int status;
         private boolean isWork;
 
+        @Override
+        public String toString() {
+            return "DataEntity{" +
+                    "gold=" + gold +
+                    ", peopleName='" + peopleName + '\'' +
+                    ", talentMarketId=" + talentMarketId +
+                    ", icon='" + icon + '\'' +
+                    ", hp=" + hp +
+                    ", id=" + id +
+                    ", content='" + content + '\'' +
+                    ", status=" + status +
+                    ", isWork=" + isWork +
+                    '}';
+        }
+
         public boolean isWork() {
             return isWork;
         }

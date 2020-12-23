@@ -548,10 +548,18 @@ public class MainActivity extends AppCompatActivity {
                         l_layout = mMainPeople4Layout;
                         break;
                 }
-                t_name.setText(type + ":" + obj.getPersonEntity().getPersonName());
-                t_hq.setText("体力:" + obj.getPersonEntity().getHp());
-                p_hq.setProgress(obj.getPersonEntity().getHp());
-                l_layout.setBackgroundResource(R.drawable.main_people_green);
+                if (obj.getPersonEntity().getHp()>0){
+                    //正常体力
+                    t_hq.setText("体力:" + obj.getPersonEntity().getHp());
+                    l_layout.setBackgroundResource(R.drawable.main_people_green);
+                    t_name.setText(type + ":" + obj.getPersonEntity().getPersonName());
+                    p_hq.setProgress(obj.getPersonEntity().getHp());
+                }else {
+                    //体力缺乏:自动下岗
+                    l_layout.setBackgroundResource(R.drawable.main_people_red);
+                    setUserLinePeople(obj.getUserPersonId(),0);
+                }
+
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -575,6 +583,39 @@ public class MainActivity extends AppCompatActivity {
                         if (alertDialog != null) alertDialog.cancel();
                     } else {
                         Toast.makeText(MainActivity.this, jsonObject.getString("message"), Toast.LENGTH_SHORT).show();
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+    }
+
+    /**
+     * 下岗
+     * @param id 员工
+     * @param state 岗位
+     */
+    private void setUserLinePeople(final int id, final int state){
+        MyHttp.Call(this, "dataInterface/UserPeople/updateWorkPostId?id="+id+"&workPostId="+state, false, new com.android.volley.Response.Listener<JSONObject>() {
+            @Override
+            public void onResponse(JSONObject jsonObject) {
+                try {
+                    if (jsonObject.getInt("status") == 200){
+                        //并修改体力
+                        MyHttp.Call(MainActivity.this, "dataInterface/UserPeople/updatePower?id="+id+"&power=100", false, new com.android.volley.Response.Listener<JSONObject>() {
+                            @Override
+                            public void onResponse(JSONObject jsonObject) {
+                                try {
+                                    if (jsonObject.getInt("status") == 200){
+                                        Toast.makeText(MainActivity.this, "自动下岗成功", Toast.LENGTH_SHORT).show();
+                                        updateUserLineView(nowLineEntity.getPos());
+                                    }
+                                } catch (JSONException e) {
+                                    e.printStackTrace();
+                                }
+                            }
+                        });
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -690,7 +731,7 @@ public class MainActivity extends AppCompatActivity {
                     }
                     if (StringUtils.isInclude(nowEntity.getStageEntity().getStageName(), entity1.getMaterialName())) {
                         //执行进仓
-                        MyHttp.Call(MainActivity.this, "Interface/index/addUserMaterialStore?userLineId=" + nowLineEntity.getId() + "&num=" + entity1.getNum() + "&supplyListId=" + entity1.getId(), true, new com.android.volley.Response.Listener<JSONObject>() {
+                        MyHttp.Call(MainActivity.this, "Interface/index/addUserMaterialStore?userLineId=" + nowLineEntity.getId() + "&num=" + entity1.getNum() + "&supplyListId=" + entity1.getId(), false, new com.android.volley.Response.Listener<JSONObject>() {
                             @Override
                             public void onResponse(JSONObject jsonObject) {
                                 try {

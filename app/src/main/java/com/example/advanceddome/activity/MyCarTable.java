@@ -272,7 +272,7 @@ public class MyCarTable extends AppCompatActivity {
                     @Override
                     public void onClick(View view) {
                         //卖出
-                        MyHttp.Call(MyCarTable.this, "Interface/index/sellUserCar?userCarStoreId=" + object.getId(), true, new Response.Listener<JSONObject>() {
+                        MyHttp.Call(MyCarTable.this, "Interface/index/sellUserCar?userCarStoreId=" + object.getId(), false, new Response.Listener<JSONObject>() {
                             @Override
                             public void onResponse(JSONObject jsonObject) {
                                 try {
